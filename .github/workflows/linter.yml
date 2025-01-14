@@ -1,4 +1,6 @@
-name: "CI (Integração Contínua) - Main"
+name: "CI (Integração Contínua) - Lint Config"
+
+#Configurações de Teste
 
 on: 
     pull_request:
