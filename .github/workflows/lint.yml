@@ -1,8 +1,8 @@
-name: "CI (Integração Contínua) - Main"
+name: "CI (Integração Contínua) - Lint Config"
 
 on: 
     pull_request:
-      branches: [ "opened", synchronize ]
+      types: [ "opened", synchronize ]
 
 # Definindo a execução
 jobs:
