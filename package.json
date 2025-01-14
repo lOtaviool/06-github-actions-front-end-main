@@ -8,7 +8,9 @@
     "dev": "next dev",
     "build": "rm -rf dist && next build && mv ./out ./dist",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "npm run build && npx vercel ./dist --confirm --no-clipboard",
+    "deploy:prod": "npm run deploy --prod --token=$VERCEL_TOKEN"
   },
   "keywords": [],
   "author": "",
