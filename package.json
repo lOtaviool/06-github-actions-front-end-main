@@ -10,8 +10,8 @@
     "build": "rm -rf dist && next build && mv ./out ./dist",
     "start": "next start",
     "lint": "next lint",
-    "deploy:prod": "npm run build && vercel ./dist --yes --token=$VERCEL_TOKEN --prod",
-    "deploy:staging": "npm run build && vercel ./dist --yes --token=$VERCEL_TOKEN",
+    "deploy:prod": "npm run build && npx vercel ./dist --yes --token=$VERCEL_TOKEN --prod",
+    "deploy:staging": "npm run build && npx vercel ./dist --yes --token=$VERCEL_TOKEN",
     "deploy:preview": "node ./scripts/pullRequestPreview"
   },
   "keywords": [],
