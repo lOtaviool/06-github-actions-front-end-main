@@ -1,5 +1,6 @@
 {
   "name": "06-github-actions-front-end-main",
+  "type": "module",
   "version": "1.0.0",
   "description": "- ...",
   "main": "index.js",
@@ -9,8 +10,9 @@
     "build": "rm -rf dist && next build && mv ./out ./dist",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && npx vercel ./dist --yes --token=$VERCEL_TOKEN",
-    "deploy:prod": "npm run build && npx vercel ./dist --yes --prod --token=$VERCEL_TOKEN"
+    "deploy:prod": "npm run build && vercel ./dist --yes --token=$VERCEL_TOKEN --prod",
+    "deploy:staging": "npm run build && vercel ./dist --yes --token=$VERCEL_TOKEN",
+    "deploy:preview": "node ./scripts/pr-preview"
   },
   "keywords": [],
   "author": "",

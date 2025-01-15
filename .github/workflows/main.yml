@@ -1,4 +1,4 @@
-name: "CI (Integração Contínua) - Primeira Action"
+name: "CI (Integração Contínua) - Action Exemplo"
 
 on: 
     # Ativa esse fluxo para push ou pull na branch main
