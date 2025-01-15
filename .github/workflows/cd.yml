@@ -20,6 +20,3 @@ jobs:
 
       - name: Run Deploy
         run: npm run deploy:prod
-
-      - name: Deploy to Vercel
-        run: npx vercel --prod --token=$VERCEL_TOKEN
