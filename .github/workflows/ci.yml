@@ -45,7 +45,7 @@ jobs:
             cache: 'npm'
 
         - name: Cypress
-          uses: cypress-io/github-action@4
+          uses: cypress-io/github-action@v6.1.0
           with:
             browser: chrome
 
