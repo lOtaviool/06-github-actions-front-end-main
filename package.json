@@ -12,7 +12,7 @@
     "lint": "next lint",
     "deploy:prod": "npm run build && vercel ./dist --yes --token=$VERCEL_TOKEN --prod",
     "deploy:staging": "npm run build && vercel ./dist --yes --token=$VERCEL_TOKEN",
-    "deploy:preview": "node ./scripts/pr-preview"
+    "deploy:preview": "node ./scripts/pullRequestPreview"
   },
   "keywords": [],
   "author": "",
