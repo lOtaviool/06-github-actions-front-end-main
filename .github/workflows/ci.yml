@@ -1,0 +1,56 @@
+name: "CI (Integração Contínua) - oficial"
+
+env: 
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID}}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }}
+
+on: 
+    pull_request:
+      types: [ "opened", synchronize ]
+
+# Definindo a execução
+jobs:
+    linter:
+      runs-on: ubuntu-latest
+      steps: 
+        - uses: actions/checkout@v3
+
+        - name: Run Installation
+          run: npm install
+
+        - name: Run Linter
+          run: npm run lint
+
+    preview: 
+      runs-on: ubuntu-latest
+      steps: 
+        - uses: actions/checkout@v3
+
+        - name: Run Installation
+          run: npm install
+
+        - name: Run Preview Deployment
+          run: npm run deploy:preview
+          
+    teste_e2e:
+      runs-on: ubuntu-latest
+      steps: 
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18.20.5
+            cache: 'npm'
+
+        - name: Cypress
+          uses: cypress-io/github-action@v6.1.0
+          with:
+            browser: chrome
+
+        - name: Run Installation
+          run: npm install
+
+        - name: Run Cypress
+          run: npm run teste:e2e

@@ -1,5 +1,6 @@
 {
   "name": "06-github-actions-front-end-main",
+  "type": "module",
   "version": "1.0.0",
   "description": "- ...",
   "main": "index.js",
@@ -8,21 +9,28 @@
     "dev": "next dev",
     "build": "rm -rf dist && next build && mv ./out ./dist",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy:prod": "npm run build && npx vercel ./dist --yes --token=$VERCEL_TOKEN --prod",
+    "deploy:staging": "npm run build && npx vercel ./dist --yes --token=$VERCEL_TOKEN",
+    "deploy:preview": "node ./scripts/pullRequestPreview",
+    "teste:e2e:open": "cypress open",
+    "teste:e2e": "cypress run --config-file=cypress.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "next": "^15.1.4",
+    "node-fetch": "^3.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "eslint-plugin-prettier": "^5.2.1"
   },
   "devDependencies": {
+    "cypress": "^13.17.0",
     "eslint": "9.18.0",
     "eslint-config-next": "15.1.4",
     "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.4.2"
   }
 }
